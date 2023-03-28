@@ -1,0 +1,29 @@
+.section{
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  display:block;
+  background-color: rgb(255, 255, 255);
+  padding: 10px;
+  padding-top: 50px;
+  text-decoration: none;
+  margin: 15px;
+  color: rgb(88, 88, 131);
+  :hover{
+      color: rgb(23, 23, 80);
+      
+  }
+
+}
+
+.sectionDiv{
+  display: flex;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 20px auto;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  }

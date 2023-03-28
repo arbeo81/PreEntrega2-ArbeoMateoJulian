@@ -1,0 +1,34 @@
+.container{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+
+    .card {
+      text-align: center;
+      margin: 10px;
+      text-decoration: none;
+    }
+
+    .cardContent{
+      text-decoration: none;
+
+      .title {
+        text-decoration: none;
+      }
+    }
+
+   
+
+    .button{
+      text-decoration: none !important;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  
+   
+
+
+}
