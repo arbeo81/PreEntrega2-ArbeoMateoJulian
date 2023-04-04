@@ -3,6 +3,8 @@ import Card from '../Card'
 import { useState, useEffect } from 'react'
 import { NavLink } from 'react-router-dom';
 import  styles  from "./ItemListContainer.module.scss";
+import ItemDetailContainer from '../ItemDetailContainer';
+
 
 const ItemListContainer = () => {
   const [productos, setProductos] = useState([]);
@@ -30,24 +32,26 @@ const productosFiltrados = categoriaSeleccionada
   : productos;
 
   return (
+
     <section className={styles.section}>
+       <h2>Nuestras categorias</h2>
       <div className={styles.sectionDiv}>
         <NavLink to={"/"} onClick={() => setCategoriaSeleccionada("")}>
         </NavLink>
         {categorias.map((categoria) => (
           <NavLink className={styles.section}
             key={categoria}
-            to={`/category/${categoria}`}
+            to={`/productos/category/${categoria}`}
             activeclassname="active"
-            onClick={() => setCategoriaSeleccionada(categoria)}
-          >
-           <h2 className={styles.section}>{categoria}</h2>
+            onClick={() => setCategoriaSeleccionada(categoria)}>
+           <h3 className={styles.section}>{categoria}</h3>
           </NavLink>
+           
         ))}
       </div>
       <div>
         {productosFiltrados.map((producto) => (
-          <Card key={producto.id} producto={producto} />
+          <Card className={styles.card} key={producto.id} producto={producto} />
         ))}
       </div>
     </section>

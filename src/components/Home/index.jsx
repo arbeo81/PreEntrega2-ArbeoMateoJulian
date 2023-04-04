@@ -1,28 +1,30 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom';
 import styles from "./home.module.scss";
+import Card1 from '../Card'
+import { useState, useEffect } from 'react'
 
-const Home = () => {
-  const activeStyle = {
-    color: "black",
-  };
-    return (
-  
-      <nav className={styles.section}>
-        <NavLink className={styles.sectionDiv}
-          to="/products"
-          style={({ isActive }) => (isActive ? activeStyle : undefined)}>
-          <h3>Productos</h3>
-        </NavLink>
-        <NavLink className={styles.sectionDiv}
-          to="/products"
-          style={({ isActive }) => (isActive ? activeStyle : undefined)}>
-          <h3>Categorias</h3>
-        </NavLink>
-       
-      </nav>
-    );
-  };
+function Home() {
+  const [productos, setProductos] = useState([]);
 
-export default Home
+  useEffect(() => {
+    fetch("https://fakestoreapi.com/products")
+      .then((response) => response.json())
+      .then((data) => {
+        setProductos(data);
+      });
+  }, []);
+
+  return (
+    <div>
+      <h1 className={styles.h1}>Listado productos</h1>
+      {productos.map((producto) => (
+        <Card1 key={producto.id} producto={producto} />
+      ))}
+    </div>
+  );
+};
+
+export default Home;
+
+
 

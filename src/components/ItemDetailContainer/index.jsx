@@ -25,12 +25,10 @@ const ItemDetailContainer = () => {
     getProducto();
   }, []);
 
+  
+
   if (loading) {
     return <h1>Cargando...</h1>
-  }
-
-  if (!producto) {
-    return <Navigate to="/404" />
   }
 
   return (

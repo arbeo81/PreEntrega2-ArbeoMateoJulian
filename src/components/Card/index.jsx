@@ -12,7 +12,7 @@ import styles from "./card.module.scss";
 
 const Card1 = ({producto}) => {
   return (
-    <Link to={`${producto.id}`}>
+    <Link to={`/products/${producto.id}`}>
     <div className={styles.container}>
       <Card className={styles.card} sx={{ maxWidth: 345 }}>
       <CardMedia className={styles.cardMedia}

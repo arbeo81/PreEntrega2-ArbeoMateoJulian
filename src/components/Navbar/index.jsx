@@ -20,19 +20,14 @@ const Navbar = () => {
         <h3>Home</h3>
       </NavLink>
       <NavLink
-        to="/products"
+        to="productos/category"
         style={({ isActive }) => (isActive ? activeStyle : undefined)}>
-        <h3>Productos</h3>
-      </NavLink>
-      <NavLink
-        to="/products"
-        style={({ isActive }) => (isActive ? activeStyle : undefined)}>
-        <h3>Categorias</h3>
+          <h3>Categorias</h3>
       </NavLink>
       <NavLink 
         to="/carrito"
         style={({ isActive }) => (isActive ? activeStyle : undefined)}>
-        <BsCartFill/>
+        <BsCartFill className={styles.icono}/>
       </NavLink>
     </nav>
   );
