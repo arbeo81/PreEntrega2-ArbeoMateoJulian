@@ -1,18 +1,18 @@
 import React from 'react'
 import Card from '../Card'
 import { useState, useEffect } from 'react'
-import { NavLink } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 import  styles  from "./ItemListContainer.module.scss";
-import ItemDetailContainer from '../ItemDetailContainer';
 
 
 const ItemListContainer = () => {
   const [productos, setProductos] = useState([]);
   const [categorias, setCategorias] = useState([]);
   const [categoriaSeleccionada, setCategoriaSeleccionada] = useState("");
+  const { Name } = useParams();
 
   useEffect(() => {
-    fetch("http://fakestoreapi.com/products")
+    fetch(`https://fakestoreapi.com/products/category/${Name}`)
     .then(res => res.json())
     .then(data => {
       setProductos(data);
@@ -20,10 +20,9 @@ const ItemListContainer = () => {
       setCategorias(categoriasElegidas);
 
     });
-  }, []);
-  const handleCategoria = (categoria) => {
-    setCategoriaSeleccionada(categoria);
-  }
+  }, [Name]);
+
+
 
 const productosFiltrados = categoriaSeleccionada
  ? productos.filter(
@@ -31,10 +30,11 @@ const productosFiltrados = categoriaSeleccionada
   )
   : productos;
 
+
+
   return (
 
     <section className={styles.section}>
-       <h2>Nuestras categorias</h2>
       <div className={styles.sectionDiv}>
         <NavLink to={"/"} onClick={() => setCategoriaSeleccionada("")}>
         </NavLink>
@@ -44,7 +44,7 @@ const productosFiltrados = categoriaSeleccionada
             to={`/productos/category/${categoria}`}
             activeclassname="active"
             onClick={() => setCategoriaSeleccionada(categoria)}>
-           <h3 className={styles.section}>{categoria}</h3>
+            <h3 className={styles.tituloCategorias}>Productos de la categoria {categoria}</h3>
           </NavLink>
            
         ))}

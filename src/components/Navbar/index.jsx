@@ -17,13 +17,29 @@ const Navbar = () => {
       <NavLink 
         to="/home"
         style={({ isActive }) => (isActive ? activeStyle : undefined)}>
-        <h3>Home</h3>
+        <h4>Home</h4>
       </NavLink>
       <NavLink
-        to="productos/category"
+        to="/productos/category/men's%20clothing"
         style={({ isActive }) => (isActive ? activeStyle : undefined)}>
-          <h3>Categorias</h3>
+          <h4>Productos Hombre</h4>
       </NavLink>
+      <NavLink
+        to="/productos/category/women's clothing"
+        style={({ isActive }) => (isActive ? activeStyle : undefined)}>
+          <h4>Productos Mujer</h4>
+      </NavLink>
+      <NavLink
+        to="productos/category/jewelery"
+        style={({ isActive }) => (isActive ? activeStyle : undefined)}>
+          <h4>Productos Joyeria</h4>
+      </NavLink>
+      <NavLink
+        to="productos/category/electronics"
+        style={({ isActive }) => (isActive ? activeStyle : undefined)}>
+          <h4>Productos Electronica</h4>
+      </NavLink>
+
       <NavLink 
         to="/carrito"
         style={({ isActive }) => (isActive ? activeStyle : undefined)}>
